@@ -31,9 +31,9 @@ public:
   }
 
 private:
-  void topic_callback(const sensor_msgs::msg::Range::SharedPtr sensor_msg) const
+  void topic_callback(const sensor_msgs::msg::Range::SharedPtr range_msg) const
   {
-    RCLCPP_INFO(this->get_logger(), "I heard: '%s'", "SOMETHING");//sensor_msg->data.c_str());
+    RCLCPP_INFO(this->get_logger(), "I heard: '%f'", range_msg->range);//sensor_msg->data.c_str());
   }
   rclcpp::Subscription<sensor_msgs::msg::Range>::SharedPtr subscription_;
 };

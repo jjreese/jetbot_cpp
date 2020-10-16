@@ -20,20 +20,27 @@ find_package(ament_cmake REQUIRED)
 find_package(rclcpp REQUIRED)
 find_package(std_msgs REQUIRED)
 find_package(geometry_msgs REQUIRED)
-find_package(sensors_msgs REQUIRED)
+find_package(sensor_msgs REQUIRED)
+find_package(behaviortree_cpp_v3 REQUIRED)
 # uncomment the following section in order to fill in
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
 
-add_executable(talker src/publisher_member_function.cpp)
+#add_executable(motor_tree_node src/motor_tree_node.cpp)
+#ament_target_dependencies(motor_tree_node behaviortree_cpp_v3)
+
+add_executable(talker src/publisher.cpp)
 ament_target_dependencies(talker rclcpp std_msgs geometry_msgs)
 add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp sensor_msgs)
+add_executable(tree src/bt_fact.cpp)
+ament_target_dependencies(tree behaviortree_cpp_v3)
 
 install(TARGETS
   talker
   listener
+  tree
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
