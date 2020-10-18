@@ -1,7 +1,7 @@
  <root main_tree_to_execute = "MainTree" >
      <BehaviorTree ID="MainTree">
         <Sequence name="root_sequence">
-            <Motor_Tree_Node name="motor_tree_node"/>
+            <Motor_Wrapper_Node name="Motor_Wrapper_Node"/>
         </Sequence>
      </BehaviorTree>
  </root>

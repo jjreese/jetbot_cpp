@@ -1,7 +1,8 @@
 #include "behaviortree_cpp_v3/bt_factory.h"
 
 // file that contains the custom nodes definitions
-#include "motor_tree_node.h"
+#include "motor_wrapper.h"
+
 int main()
 {
     // We use the BehaviorTreeFactory to register our custom nodes
@@ -11,7 +12,7 @@ int main()
     //using namespace DummyNodes;
 
     // The recommended way to create a Node is through inheritance.
-    factory.registerNodeType<Motor_Tree_Node>("Motor_Tree_Node");
+    factory.registerNodeType<nav2_behavior_tree::MotorAction>("MotorAction");
 
     // Registering a SimpleActionNode using a function pointer.
     // you may also use C++11 lambdas instead of std::bind

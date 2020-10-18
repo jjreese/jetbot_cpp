@@ -26,6 +26,12 @@ find_package(behaviortree_cpp_v3 REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+find_package(rosidl_default_generators REQUIRED)
+
+rosidl_generate_interfaces(${PROJECT_NAME}
+  "src/action/Motor.action"
+)
+
 
 #add_executable(motor_tree_node src/motor_tree_node.cpp)
 #ament_target_dependencies(motor_tree_node behaviortree_cpp_v3)
