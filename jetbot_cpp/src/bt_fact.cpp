@@ -12,7 +12,7 @@ int main()
     //using namespace DummyNodes;
 
     // The recommended way to create a Node is through inheritance.
-    factory.registerNodeType<nav2_behavior_tree::MotorAction>("MotorAction");
+//    factory.registerNodeType<MotorAction>("MotorAction");
 
     // Registering a SimpleActionNode using a function pointer.
     // you may also use C++11 lambdas instead of std::bind

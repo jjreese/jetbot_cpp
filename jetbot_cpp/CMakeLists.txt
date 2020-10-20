@@ -26,6 +26,10 @@ find_package(behaviortree_cpp_v3 REQUIRED)
 # further dependencies manually.
 # find_package(<dependency> REQUIRED)
 
+find_package(rclcpp_action REQUIRED)
+find_package(rclcpp_components REQUIRED)
+
+
 find_package(rosidl_default_generators REQUIRED)
 
 rosidl_generate_interfaces(${PROJECT_NAME}
@@ -42,11 +46,15 @@ add_executable(listener src/subscriber_member_function.cpp)
 ament_target_dependencies(listener rclcpp sensor_msgs)
 add_executable(tree src/bt_fact.cpp)
 ament_target_dependencies(tree behaviortree_cpp_v3)
+add_executable(action_server src/motor_action_server)
+
+ament_target_dependencies(action_server rclcpp rclcpp_action rclcpp_components)
 
 install(TARGETS
   talker
   listener
   tree
+  action_server
   DESTINATION lib/${PROJECT_NAME})
 
 if(BUILD_TESTING)
