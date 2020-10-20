@@ -1,7 +1,7 @@
 #include "behaviortree_cpp_v3/bt_factory.h"
 
 // file that contains the custom nodes definitions
-#include "motor_wrapper.h"
+#include "jetbot_cpp/motor_wrapper.h"
 
 int main()
 {
