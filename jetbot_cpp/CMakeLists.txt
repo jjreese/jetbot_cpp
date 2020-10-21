@@ -32,8 +32,10 @@ find_package(rclcpp_components REQUIRED)
 
 find_package(rosidl_default_generators REQUIRED)
 
+include_directories(include)
+
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "src/action/Motor.action"
+  "action/Motor.action"
 )
 
 
@@ -47,8 +49,8 @@ ament_target_dependencies(listener rclcpp sensor_msgs)
 add_executable(tree src/bt_fact.cpp)
 ament_target_dependencies(tree behaviortree_cpp_v3)
 add_executable(action_server src/motor_action_server)
-
 ament_target_dependencies(action_server rclcpp rclcpp_action rclcpp_components)
+rosidl_target_interfaces(action_server ${PROJECT_NAME} "rosidl_typesupport_cpp")
 
 install(TARGETS
   talker

@@ -1,13 +1,13 @@
 #include "rclcpp/rclcpp.hpp"
 #include "rclcpp_action/rclcpp_action.hpp"
 #include "rclcpp_components/register_node_macro.hpp"
-//#include "action/Motor.hpp"
+#include "jetbot_cpp/action/motor.hpp"
 
 
 class MotorActionServer : public rclcpp::Node
  {
   public:
-	using Motor = jetbot_cpp::src::action::Motor
+	using Motor = jetbot_cpp::action::Motor
 	MotorActionServer(const rclcpp::NodeOptions & options = rclcpp::NodeOptions())
 	  : Node("motor_action_server",options)
 	{
